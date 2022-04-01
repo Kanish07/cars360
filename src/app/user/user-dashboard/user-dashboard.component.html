@@ -1,0 +1,46 @@
+<app-user-nav></app-user-nav>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="text-center">
+            <svg width="75px" height="75px" [data-jdenticon-value]="name"></svg>
+            <h3 class="mt-2">{{userDetails?.username}}</h3>
+            <h5 class="mt-2">{{userDetails?.useremail}}</h5>
+            <h5 class="mt-2">{{userDetails?.userphno}}</h5>
+            <h5 class="mt-2">{{userDetails?.userCity}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8" style="height: 60vh">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title mb-4" style="color: #00C293;">My Purchases</h2>
+          <p-scrollPanel [style]="{width: '100%', height: '70vh'}">
+            <div class="container">
+              <div class="card mb-3" *ngFor="let item of carDetails">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div><img src="../../../assets/carbg1.jpeg" width="75px" height="75px" alt=""></div>
+                    </div>
+                    <div class="col-md-10">
+                      <div>{{item.car.carmake}} {{item.car.carmodelname}}</div>
+                      <div>Date of Purchase: {{item.purchasedate | date:'medium'}}</div>
+                      <div>Price: {{item.car.carprice}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="carDetails == undefined">
+                <h6>No Purchase History</h6>
+              </div>
+            </div>
+          </p-scrollPanel>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

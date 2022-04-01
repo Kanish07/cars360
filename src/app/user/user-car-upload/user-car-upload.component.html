@@ -1,0 +1,91 @@
+<app-user-nav></app-user-nav>
+<div id="multi">
+    <br>
+    <br>
+    <div class="d-flex justify-content-center align-self-center top width">
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-10">
+            <div class="text-center mb-5">
+                <!-- <img src="../../assets/Cars360.png" alt="Image" height="50" class="mb-3"> -->
+                <div class="text-900 text-3xl font-medium mb-3 text-color">Welcome To Cars360</div>
+                <span class="text-600">New User Registration</span>
+            </div>
+            <div>
+                <form [formGroup]="registerCarForm">
+                    <div class="row mb-4">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carmake" class="block text-900 font-medium mb-2">Car Make</label>
+                            <input formControlName="carmake" type="text" pInputText placeholder="Enter Car Make"
+                                [ngClass]="{ 'is-invalid': submitted && h['carmake'].errors}"
+                                class="form-control w-full mb-3 input">
+                            <div *ngIf="h['carmake'].touched && h['carmake'].errors" class="text-danger">
+                                <div *ngIf="h['carmake'].errors['required']">Car make is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carmodelname" class="block text-900 font-medium mb-2">Car Model</label>
+                            <input type="text" formControlName="carmodelname"
+                                [ngClass]="{ 'is-invalid': submitted && h['carmodelname'].errors }"
+                                placeholder="Enter Car Model" pInputText class="w-full mb-3 input form-control">
+                            <div *ngIf="h['carmodelname'].touched && h['carmodelname'].errors" class="text-danger">
+                                <div *ngIf="h['carmodelname'].errors['required']">car model is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carprice" class="block text-900 font-medium mb-2">Car Price</label>
+                            <input formControlName="carprice" type="number" pInputText placeholder="Enter Car Price"
+                                [ngClass]="{ 'is-invalid': submitted && h['carprice'].errors}"
+                                class="form-control w-full mb-3 input">
+                            <div *ngIf="h['carprice'].touched && h['carprice'].errors" class="text-danger">
+                                <div *ngIf="h['carprice'].errors['required']">Car Price is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carcity" class="block text-900 font-medium mb-2">City</label>
+                            <p-dropdown formControlName="carcity" [ngClass]="{ 'is-invalid': submitted && h['carcity'].errors }"
+                            placeholder="Select a City form the list" [showClear]="true" [options]="cities" [(ngModel)]="selectedCity" class="w-full mb-3"></p-dropdown>
+                            <div *ngIf="h['carcity'].touched && h['carcity'].errors" class="text-danger">
+                                <div *ngIf="h['carcity'].errors['required']">City is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="cartype" class="block text-900 font-medium mb-2">Car Type</label>
+                            <p-dropdown formControlName="cartype" [ngClass]="{ 'is-invalid': submitted && h['cartype'].errors }"
+                            placeholder="Select a car type form the list" [showClear]="true" [options]="type" [(ngModel)]="carType" class="w-full mb-3"></p-dropdown>
+                            <div *ngIf="h['cartype'].touched && h['cartype'].errors" class="text-danger">
+                                <div *ngIf="h['cartype'].errors['required']">Car Type is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carfuel" class="block text-900 font-medium mb-2">Fuel type</label>
+                            <p-dropdown formControlName="carfuel" [ngClass]="{ 'is-invalid': submitted && h['carfuel'].errors }"
+                            placeholder="Select a fuel type form the list" [showClear]="true" [options]="fuel" [(ngModel)]="carfuel" class="w-full mb-3"></p-dropdown>
+                            <div *ngIf="h['carfuel'].touched && h['carfuel'].errors" class="text-danger">
+                                <div *ngIf="h['carfuel'].errors['required']">Fuel type is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="carshifttype" class="block text-900 font-medium mb-2">Shift Type</label>
+                            <p-dropdown formControlName="carshifttype" [ngClass]="{ 'is-invalid': submitted && h['carshifttype'].errors }"
+                            placeholder="Select a Shift type form the list" [showClear]="true" [options]="shift" [(ngModel)]="shiftType" class="w-full mb-3"></p-dropdown>
+                            <div *ngIf="h['carshifttype'].touched && h['carshifttype'].errors" class="text-danger">
+                                <div *ngIf="h['carshifttype'].errors['required']">Shift type is required</div>
+                            </div>
+                        </div>
+                        </div>
+                    <button pButton pRipple label="Signup" [disabled]="!registerCarForm.valid"
+                        (click)="onSubmit(registerCarForm.value)"
+                        class="p-button-raised p-button-text w-full color p-button-plain">
+                        <div *ngIf="!isLoading;else loader">
+                        </div>
+                        <ng-template #loader>
+                            <div class="spinner-border text-light" role="status">
+                            </div>
+                            <!-- <p-progressBar mode="indeterminate" [style]="{'height': '8px', 'background': 'white'}"></p-progressBar> -->
+                        </ng-template>
+                    </button>
+                </form>
+                <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
+            </div>
+        </div>
+    </div>
+</div>

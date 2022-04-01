@@ -1,0 +1,34 @@
+<app-user-nav [items]="items"></app-user-nav>
+    <div class="bg">
+        <div class="container">
+            <div style="color: #120E43;">
+                <br>
+                <br>
+                <h1 style="font-size: 3vw;">Welcome to Cars360</h1>
+                <h1 style="font-size: 3vw;">Buy the best cars out in the market</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 col-md-1 mt-5" style="color: #fff;">
+                    <i class="pi pi-map-marker" style="font-size: 2.5rem; float: right;"></i>
+                </div>
+                <div class="col-lg-3 col-md-3 mt-5" style="color: #120E43;">
+                    <form [formGroup]="myFormGroup">
+                        <!-- <p-dropdown name="city" placeholder="Select your location" [options]="cities" class="w-full mb-3"></p-dropdown> -->
+                        <p-dropdown formControlName="userCity"
+                            [ngClass]="{ 'is-invalid': submitted && h['userCity'].errors }"
+                            placeholder="Select a City form the list" [showClear]="true" [options]="cities"
+                            [(ngModel)]="selectedCity" class="w-full mb-3"></p-dropdown>
+                        <div *ngIf="h['userCity'].touched && h['userCity'].errors" class="text-danger">
+                            <div *ngIf="h['userCity'].errors['required']">City is required</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 mt-5" style="color: #120E43;">
+                    <button pButton class="button-ele" (click)="onGo()" [disabled]="!myFormGroup.valid">
+                        Go
+                    </button>
+                </div>
+                <!-- <img src="../../../assets/carmove.png" alt=""  style="width: 70%; margin-left: auto;" height="412px"> -->
+            </div>
+        </div>
+    </div>

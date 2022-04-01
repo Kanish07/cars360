@@ -1,0 +1,68 @@
+p-button .p-element{
+    border-color: #FFF;
+    background-color:  #00C293 !important;
+    color: white !important;
+    border-color: #00C293 !important;
+    box-shadow: 0 0 0 0.02rem #00C293 !important;
+    width: 150px;
+ }
+
+ .bVR0c {
+    margin-bottom: 16px;
+    padding: 15px 0;
+    /* display: -webkit-box; */
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #dde5eb;
+}
+
+.bVR0c li {
+    margin-right: 18px;
+    max-width: 107px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 30px;
+    background: #ebf4f9;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    color: #465166;
+    list-style: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+._19zc5 {
+    padding-bottom: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.JvSRy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+._2HFRN{
+    color: #00C293;
+}
+

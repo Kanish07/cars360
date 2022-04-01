@@ -1,0 +1,40 @@
+<app-user-nav></app-user-nav>
+<div id="bg">
+    <br>
+    <br>
+    <div class="container">
+        <p-scrollPanel [style]="{width: '100%', height: 'calc(100vh - 130px)'}" class="custombar2">
+            <div *ngIf="!isLoading else loading">
+                <div class="card-group" *ngIf="carList.length > 0 && carList != null else nocar;">
+                    <div class="col-sm-4 col-md-4 col-lg-4  mb-2 mt-2" *ngFor="let c of carList" >
+                        <div class="card shadow mx-2" style="border-radius: 15px;" >
+                                <img alt="Card" src="../../../assets/carbg.png" height="" style="border-radius: 15px;">
+                            <div style="padding: 20px">
+                                <div style="display: flex; justify-content: space-between; flex: 1;"> 
+                                    <h3 class="card-title" >{{ c.carmake }} {{c.carmodelname}}</h3>
+                                </div>
+                                <ul class="bVR0c"><li>{{ c.carshifttype }}</li><li> {{ c.carfuel }}</li><li>{{c.cartype}}</li></ul>
+                                <div class="_19zc5">
+                                    <div class="_2HFRN"><strong>{{ c.carprice/25 | currency:"INR"}}/month</strong></div>
+                                    <div class="_7udZZ"><span>{{ c.carprice | currency:"INR"}}</span></div>
+                                </div>
+                                <div class="JvSRy"><span class="_3X7mV _2H07I" style="color: #FE9D02;">Zero downpayment</span></div>
+                                <button type="button" class="btn text-white text-center w-100 mt-3" style="background-color: #120e43; margin: auto;" (click)="onBuy(c.carid)">Buy</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </p-scrollPanel>
+    </div>
+    <p-toast></p-toast>
+</div>
+
+<ng-template #nocar>
+    <h3 style="color: #120e43;">No cars in your city at this moment we are working on it.</h3>
+</ng-template>
+<ng-template #loading>
+    <i class="fa fa-spinner" aria-hidden="true"></i>
+</ng-template>
